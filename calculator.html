@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>demo</title>
+	<meta charset="utf-8">
+</head>
+<body>
+<!-- 	 编写函数 show，功能实现传入三个参数，第一个为表格边框的粗细，第二个为表格的行数，第三个为表格的列数，例如调用 show（"5px",3,5）;在页面中（document.write）输出3行5列边框为5px的表格；
+ -->
+</body>
+</html>
+<script type="text/javascript">
+	document.write('<table border="2px" color="gray"><tr color="gray"><td colspan="3" color="gray"><div id="result" style="padding:5px;text-align:right;width: 205px;text-overflow: clip;white-space:nowrap; word-break:keep-all; overflow:hidden;font-size:1.4em; "></div></td><td color="gray" style="padding:5px"><button style="width:60px ; height:60px;font-size:1.5em;" onclick="CLearDate();">C</button></td></tr>');
+		var m=[1,2,3,'+',4,5,6,'-',7,8,9,'*',0,'.','=','/'];
+		var n=0;
+		for(var i=1;i<=4;i++){
+		document.write('<tr color="gray">');
+			for(var j=1;j<=4;j++){
+			document.write('<td color="gray" style="padding:5px"><button style="width:60px ; height:60px; font-size:1.5em;" onclick="clic(this)">'+m[n]+'</button></td>');
+			n++;
+		}
+   	   document.write('</tr>');
+	}
+	document.write('</table>');
+	var str='0';var dot=0;var noadd=0;
+	showData();
+	function showData(){
+		document.getElementById('result').innerHTML=str;//str.substring(str.length-18,);
+	}
+	function calculate(value){
+		try{
+			str=eval(str);noadd=1;showData();
+		}catch(err){
+			str='出错';dot=0;
+		}
+	}
+	function clic(argument) {
+		var value=argument.innerHTML;
+		if (str=="出错"||noadd==1) {str='0';showData();noadd=0;}
+		if(str!="0"&&value!="."){
+			if (!isNaN(value)) {str+=value;}else{
+				if (value=="=") {calculate();}else{
+					dot=0;str+=value;
+				}
+			}
+		}else if(str=="0"&&value!="."&&value!="="){
+			if (isNaN(value)) {str+=value;}else{str=value;}
+		}else if (value=="."){
+			if (dot==0) {dot++;str+=value;}
+		}else if (value=="=") {calculate();}
+		showData();
+	}
+	function CLearDate(argument) {
+		str="0";showData();
+	}
+</script>
