@@ -1,64 +1,124 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
-    <title> 仿QQ空间相册 </title>
-    <meta charset="utf-8" />
-    <style type="text/css">
-        #main{
-        width:1000px;
-        margin:auto;
-        }
-        #smallpic{
-        height:120px; 
-        }
-        img{
-        float:left; 
-        margin-right:10px; 
-        margin-bottom:10px;
-        }
-        #smallpic img:hover{
-            cursor:pointer; /*设定鼠标的形状为小手*/
-        }
-        .pb{
-         border:3px solid #14c3fd;
-        } 
-    </style>
-    
+	<title>index</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+	<!-- 下拉菜单功能 -->
+	<script type="text/javascript">
+		window.onload = function(){
+			var liNodes = document.getElementsByTagName("li");
+			for (var i=0; i<liNodes.length; i++)
+			{
+				liNodes[i].onmouseover = function(){
+					this.className = "subMenuShow";
+				}
+				liNodes[i].onmouseout = function(){
+					this.className = "";
+				}
+			}
+		}
+	</script>
 </head>
-
 <body>
-    <div id="main">
-        <div id="smallpic">
-            <img src="images/s2.jpg" width="180" height="100" id="2" onclick="showpic('images/s2.jpg','2');" />
-            <img src="images/s3.jpg" width="180" height="100"  id="3" onclick="showpic('images/s3.jpg','3');" />
-            <img src="images/s4.jpg" width="180" height="100" id="4" onclick="showpic('images/s4.jpg','4');" />
-            <img src="images/s5.jpg" width="180" height="100" id="5" onclick="showpic('images/s5.jpg','5')" />
-            <img src="images/s6.jpg" width="180" height="100" id="6" onclick="showpic('images/s6.jpg','6');" />
-        </div>
-        <div >
-            <img id="bigpic" src="images/s1.jpg" width="940px" />
-        </div>
-    </div>
+<!-- 页头部分 -->
+<div clsss="header">
+	<!-- logo图片 -->
+	<div id="banner">
+		<img id="logo" src="images/logo.png">
+		<span>BAMBOO  company</span>
+		<!-- 表单功能 ，见password.html文件-->
+		<a id="login" href="password.html"><input type="botton" name="" value="SIGN UP"></a>
+		<a id="login" href="password.html"><input type="botton" name="" value="LOG IN"></a>
+
+	</div>
+
+	<!-- 导航栏和搜索框 -->
+	<div class="nav">
+		<!-- 导航栏 -->
+		<div class="nav_content">
+			<ul id="nav1">
+				<li><a href="index.html">HOME</a>
+					<ul>
+						<li><a href="#">ONE</a></li>
+						<li><a href="#">TWO</a></li>
+						<li><a href="#">THREE</a></li>
+					</ul>
+				</li>
+				<li><a href="#">NEWS</a>
+					<ul>
+						<li><a href="#">ONE</a></li>
+						<li><a href="#">TWO</a></li>
+						<li><a href="#">THREE</a></li>
+					</ul>
+				</li>
+				<li><a href="#">CONTENTS</a>
+					<ul>
+						<li><a href="#">ONE</a></li>
+						<li><a href="#">TWO</a></li>
+						<li><a href="#">THREE</a></li>
+					</ul>
+
+				</li>	
+				<li><a href="#">ABOUT</a>
+					<ul>
+						<li><a href="#">ONE</a></li>
+						<li><a href="#">TWO</a></li>
+						<li><a href="#">THREE</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<!-- 搜索框 -->
+		<div class="nav_search">
+			<input type="text" name="text" id="input_text"/>
+			<input id="input_button" type="button" name="botton" value="search" />
+		</div>
+	</div>
+</div>
+<!-- 主体部分 -->
+<div class="content">
+	<div class="one">
+		<!-- 幻灯片功能，见img.html文件 -->
+		<a href="img.html"><img src="images/company.jpg"></a>
+		<span>The company of us</span>
+	</div>
+	<div class="one">
+		<a href="#"><img src="images/computer.jpg"></a>
+		<span>Our computer</span>
+	</div>
+	<div class="one">
+		<a href="#"><img src="images/tea.jpg"></a>
+		<span>The live</span>
+	</div>
+	<div class="one">
+		<a href="#"><img src="images/rouse.jpg"></a>
+		<span>The love</span>
+	</div>
+	<div class="one">
+		<a href="#"><img src="images/like.jpg"></a>
+		<span>We like</span>
+	</div>
+	<div class="one">
+		<a href="#"><img src="images/chair.jpg"></a>
+		<span>The break</span>
+	</div>
+</div>
+<!-- 页脚部分 -->
+<div class="footer"><hr><br>
+	<div id="footer_z">
+		<div id="footer_a"><a href="#">E-mail</a></div>
+		<div id="footer_a"><a href="#">Design</a></div>
+		<div id="footer_a"><a href="#">Collect</a></div>
+		<div id="footer_a"><a href="#">MAp</a></div>
+		<div id="footer_a"><a href="#">WE</a></div>
+		<div id="footer_d">PHONE:15226593518</div>
+		<div id="footer_d">E-mail:13643847574@qq.com</div>
+		<div id="footer_d">
+		The location :Beijing zhonggauncun software garden phase ii BAMBOO  company</div>
+	</div>
+</div>
+
 </body>
-<script type="text/javascript">
-    var img1=document.getElementById("smallpic").childNodes[0];
-    function showpic(i,j,n) {
-        var bigpic1=document.getElementById('bigpic');
-        bigpic1.src=i;
-       // var img=document.getElementById(j);
-        for(var n=2;n<7;n++)
-        {
-            sn=String(n);
-            var img=document.getElementById(sn);
-            if(sn!=j)
-            {
-                img.style.border="";
-            }
-            else
-            {
-                img.style.border="3px solid #ff8800";
-            }
-        }
-    }
-</script>
 </html>
