@@ -23,7 +23,7 @@ a:hover{
 body{
 	margin: 0 auto;
 	background-repeat: repeat-x;  
-	background-image: url(images/background1.png);
+	background-image: url(background1.png);
 	background-size: 1366px 1200px;
 	background-position: top center;
 	opacity: 0.6px;
