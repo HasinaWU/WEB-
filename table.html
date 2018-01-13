@@ -1,41 +1,55 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
-	<title>表格</title>
-	<meta charset="utf-8" />
-	<style type="text/css">
-		*{
-			font-size: 36px;
-		}
-		tr{
-			height: 30px;
-		}
-	</style>
+    <title> 仿QQ空间相册 </title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+        #main{
+        width:1000px;
+        margin:auto;
+        }
+        #smallpic{
+        height:120px; 
+        }
+        img{
+        float:left; 
+        margin-right:10px; 
+        margin-bottom:10px;
+        }
+        #smallpic img:hover{
+            cursor:pointer; /*设定鼠标的形状为小手*/
+        }
+        .pb{
+         border:3px solid #14c3fd;
+        } 
+    </style>
+    <script type="text/javascript">
+        function showbig(obj){
+        	var pic=obj.src;
+        	var smpics=document.getElementById('smallpic');
+        	var imgs=smpics.getElementsByTagName('img');
+        	for (var i=0; i<imgs.length ;i++ ){
+            	imgs[i].className='';
+        	};
+        	obj.className='pb';
+        	var bigpic=document.getElementById('bigpic');
+        	bigpic.src=pic;
+        }
+    </script>
 </head>
+
 <body>
-	<table width="1000px" border="1" id="1">
-		<tr height="30px">
-			<td></td><td></td><td></td><td></td><td></td><td></td>
-			<td></td><td></td><td></td><td></td><td></td><td></td>
-		</tr>
-	</table>
-	<input type="button" name="" id="add" value="添加一行" style="margin-left:840px;" onclick="addhang();"/>
-	<input type="button" name="" id="delete" value="删除一行" style="margin-left:840px;" onclick="removehang();" />
+    <div id="main">
+        <div id="smallpic">
+            <img src="images/s2.jpg" width="180" height="100" onclick="showbig(this)"/>
+            <img src="images/s3.jpg" width="180" height="100" onclick="showbig(this)"/>
+            <img src="images/s4.jpg" width="180" height="100" onclick="showbig(this)"/>
+            <img src="images/s5.jpg" width="180" height="100" onclick="showbig(this)"/>
+            <img src="images/s6.jpg" width="180" height="100" onclick="showbig(this)"/>
+        </div>
+        <div>
+            <img id="bigpic" src="images/s1.jpg" width="940px" />
+        </div>
+    </div>
 </body>
-<script type="text/javascript">
-	function addhang(){
-		var mytr=document.createElement("TR");
-			document.getElementById('1').appendChild(mytr);
-			for(var i=0;i<12;i++)
-			{
-				var myadd=document.createElement("TD");
-				mytr.appendChild(myadd);
-			}
-	}
-	function removehang(){
-		var mytable=document.getElementById("1");
-		var n=mytable.childNodes.length;
-		mytable.removeChild(mytable.childNodes[n-1]);
-	}		
-	</script>
 </html>
